@@ -12,12 +12,12 @@ carácter experimental donde incluir una feature añadida según proponga el pro
 Esta última característica nunca deberá afectar el siguiente grupo de requisitos.
 
 Requerimientos necesarios que cumplir:
-     Gestionar las peticiones de forma eficiente (fichero CSV adjunto).
-     Capacidad de ordenación de columnas y paginación (preferencia por un scroll infinito).
-     Capacidad responsive; habilidad para adaptarse a diferentes pantallas.
-     Garantizar su comportamiento e interfaz con test unitarios.
-     Distribuir en un repositorio donde gestionar la release y control de código.
+    * Gestionar las peticiones de forma eficiente (fichero CSV adjunto).
+    * Capacidad de ordenación de columnas y paginación (preferencia por un scroll infinito).
+    * Capacidad responsive; habilidad para adaptarse a diferentes pantallas.
+    * Garantizar su comportamiento e interfaz con test unitarios.
+    * Distribuir en un repositorio donde gestionar la release y control de código.
 Consideraciones para el desarrollo:
-     Preferencia por Framework Angular (lenguaje TypeScript).
-     Propuesta de utilizar librería UI de Angular Material o según elección.
-     Propuesta de crear un nuevo repo en la plataforma GitHub o según elección. 
+    * Preferencia por Framework Angular (lenguaje TypeScript).
+    * Propuesta de utilizar librería UI de Angular Material o según elección.
+    * Propuesta de crear un nuevo repo en la plataforma GitHub o según elección. 
