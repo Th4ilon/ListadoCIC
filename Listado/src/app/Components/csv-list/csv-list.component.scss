@@ -1,0 +1,19 @@
+.content {
+  max-width: 600px;
+  margin: auto;
+  padding: 10px;
+  .contentList{
+    overflow: auto;
+    max-height: 500px;
+  }
+  .list-group-item{
+    span{ margin-right: 20px; }
+    
+    ::ng-deep .mat-sort-header-arrow {
+      color:black;
+    }
+  }
+  .hover-action:hover {
+    background-color: rgb(232, 238, 243);
+  }
+}
