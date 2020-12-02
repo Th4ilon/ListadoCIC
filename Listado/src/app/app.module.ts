@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+
 // Modules
 import { AppRoutingModule } from './app-routing.module';
 import { HttpClientModule } from '@angular/common/http';
@@ -10,6 +11,7 @@ import { CsvListComponent } from './Components/csv-list/csv-list.component'; // 
 // Materrial Modules
 import { MaterialModule } from '../Shared/Modules/material.module';
 import { DatePipe } from '@angular/common';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { DatePipe } from '@angular/common';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
