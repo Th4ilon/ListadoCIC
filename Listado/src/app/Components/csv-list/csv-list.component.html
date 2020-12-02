@@ -1,4 +1,4 @@
-<div style="width: 50%;">
+<!--<div style="width: 50%;">
     <div>Listado</div>
     <table matSort (matSortChange)="sortData($event)">
       <tr>
@@ -14,5 +14,32 @@
         <td>{{value.stateDetail}}</td>
       </tr>
     </table>
+</div>-->
+<div class="content">
+  <table matSort (matSortChange)="sortData($event)" class="list-group-item active">
+    <tr>
+      <th mat-sort-header="date" style="padding-left: 30px;">Date</th>
+      <th mat-sort-header="value" style="padding-left: 70px;">Values</th>
+      <th mat-sort-header="state">State</th>
+      <th mat-sort-header="stateDetail">State Details</th>
+    </tr>
+  </table>
+  <div class="contentList" (scroll)="onTableScroll($event)">
+    <mat-list>
+      <mat-list-item *ngFor="let item of dataSource" class="list-group-item hover-action">
+        <p matLine >
+          <span> {{item.date.toLocaleString()}}</span>
+          <span> {{item.value}} </span>
+          <span> {{item.state}} </span>
+          <span> {{item.stateDetail}} </span>
+        </p>
+        <!--<button mat-icon-button [matMenuTriggerFor]="itemMenu">
+          <mat-icon>
+            more_vert
+          </mat-icon>
+        </button>-->
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </mat-list>
+  </div>
 </div>
-

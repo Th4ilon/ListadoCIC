@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-
 // Services
 import { DataReaderService } from '../../../Shared/Services/data-reader.service';
 // Models
@@ -14,22 +13,76 @@ import { Sort } from '@angular/material/sort';
 })
 export class CsvListComponent implements OnInit {
 
-  sortedValues: ListItem[];
+  dataSource: ListItem[] = [];
+  start = 7;
+  limit = 20;
+  end: number = this.limit + this.start;
 
   constructor(private csvData: DataReaderService) { }
 
   ngOnInit(): void {
-     this.sortedValues = this.csvData.getCsvData(); // TODO Loading pipe or interceptor?
+    this.readCsvData(this.start, this.end); // TODO Loading pipe or interceptor?
+    this.updateIndex();
   }
 
+  // Private Functions
+   private readCsvData(start, end): void{
+    this.csvData.getCsvData().subscribe(
+      data => {
+          const csvToRowArray = data.split('\n');
+          if (end <= csvToRowArray.length){
+            for (let index = start; index < end; index++) {
+              const row = csvToRowArray[index].split(';');
+              const currentDate = this.createDateType(row[0]);
+              this.dataSource.push(new ListItem(currentDate, parseInt( row[1], 10), parseInt( row[2], 2), row[3]));
+            }
+          }
+      },
+      error => {
+          console.log(error);
+      }
+    );
+   }
 
+   private createDateType(dates: string): Date{
+    const currentDate = dates.substring(0, 10).split('/');
+    const currentTime = dates.substring(11, 19).split(':');
+    const dateObject = new Date(
+      +currentDate[2],
+      +currentDate[1] - 1,
+      +currentDate[0],
+      +currentTime[0],
+      +currentTime[1],
+      +currentTime[2]);
+
+    return dateObject;
+  }
+
+  private updateIndex(): void {
+    this.start = this.end;
+    this.end = this.limit + this.start;
+  }
+
+  // Public Functions
+  onTableScroll(event): void {
+    const tableViewHeight = event.target.offsetHeight; // viewport
+    const tableScrollHeight = event.target.scrollHeight; // length of all table
+    const scrollLocation = event.target.scrollTop; // how far user scrolled
+    // If the user has scrolled within 200px of the bottom, add more data
+    const buffer = 200;
+    const limit = tableScrollHeight - tableViewHeight - buffer;
+    if (scrollLocation > limit) {
+       this.readCsvData(this.start, this.end);
+       this.updateIndex();
+    }
+  }
   sortData(sort: Sort): any {
     if (!sort.active || sort.direction === '') {
-      this.sortedValues = this.sortedValues.slice();
+      this.dataSource = this.dataSource .slice();
       return;
     }
 
-    this.sortedValues = this.sortedValues.slice().sort((a, b) => {
+    this.dataSource = this.dataSource.slice().sort((a, b) => {
       const isAsc = sort.direction === 'asc';
       switch (sort.active) {
         case 'date': return compare(a.date, b.date, isAsc);
@@ -41,7 +94,7 @@ export class CsvListComponent implements OnInit {
     });
   }
 }
-
+// TODO:  MAKE IT AS AN EXPORTED FUNCTION.
 function compare(a: number | string | Date, b: number | string | Date, isAsc: boolean): any {
   return (a < b ? -1 : 1) * (isAsc ? 1 : -1);
 }

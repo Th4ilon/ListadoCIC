@@ -12,6 +12,7 @@ import { CsvListComponent } from './Components/csv-list/csv-list.component'; // 
 import { MaterialModule } from '../Shared/Modules/material.module';
 import { DatePipe } from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     MaterialModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ScrollingModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
