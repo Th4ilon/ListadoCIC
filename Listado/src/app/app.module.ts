@@ -7,6 +7,9 @@ import { HttpClientModule } from '@angular/common/http';
 // Components
 import { AppComponent } from './app.component';
 import { CsvListComponent } from './Components/csv-list/csv-list.component'; // TODO need to be a module
+// Materrial Modules
+import { MaterialModule } from '../Shared/Modules/material.module';
+import { DatePipe } from '@angular/common';
 
 
 @NgModule({
@@ -17,9 +20,10 @@ import { CsvListComponent } from './Components/csv-list/csv-list.component'; // 
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

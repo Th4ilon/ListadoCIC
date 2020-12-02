@@ -1,2 +1,32 @@
-<p>csv-list works!</p>
-<div *ngFor="let value of values">{{value}}</div>
+<div style="width: 50%;">
+    <div>Listado</div>
+        <mat-list class="content">
+            <mat-list-item>
+                <p>Filtros</p>
+                <input type="text" name="value" id="valueSearch" placeholder="Spesific Value">
+                <input type="text" name="date" id="dateSearch" placeholder="Specific Date">  
+                <button>Date</button>
+                <button>Value</button>
+                <mat-divider></mat-divider>
+            </mat-list-item>
+            <mat-list-item *ngFor="let value of values">   
+                <p>{{value.date}} </p>&nbsp;&nbsp;
+                <p>{{value.value}} </p>&nbsp;&nbsp;
+                <p>{{value.state}} </p>&nbsp;&nbsp;
+                <p>{{value.stateDetail}} </p>
+                <mat-divider></mat-divider>
+            </mat-list-item>
+        </mat-list>
+</div>
+
+<!--<mat-menu #itemMenu="matMenu">
+  <button mat-menu-item>
+    Option 1
+  </button>
+  <button mat-menu-item>
+    Option 2
+  </button>
+  <button mat-menu-item>
+    Option 3
+  </button>
+</mat-menu>-->
