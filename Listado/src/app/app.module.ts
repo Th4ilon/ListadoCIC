@@ -13,12 +13,14 @@ import { MaterialModule } from '../Shared/Modules/material.module';
 import { DatePipe } from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { FilterByValuesComponent } from './Components/filter-by-values/filter-by-values.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CsvListComponent
+    CsvListComponent,
+    FilterByValuesComponent
   ],
   imports: [
     BrowserModule,
