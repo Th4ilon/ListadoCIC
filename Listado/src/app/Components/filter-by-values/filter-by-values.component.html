@@ -8,10 +8,10 @@
         </mat-form-field>
     </div>
     <div class="col-sm-6">
-        <mat-form-field class="example-full-width">
+        <mat-form-field appearance="fill">
             <mat-label>Enter Value</mat-label>
-            <input matInput placeholder="Ex. 40140" value="40140" #valueFinder>
+            <input matInput placeholder="Ex. 40140" value="" #valueFinder>
         </mat-form-field>
-        <button (click)="findValue()">Find</button>
+        <button class="btn btn-primary" (click)="findValue()">Find</button>
     </div>
 </div>

@@ -17,9 +17,11 @@
           <span> {{item.state}} </span>
           <span> {{item.stateDetail}} </span>
         </p>
+        <app-item-details [listItem]="item"></app-item-details>
         <mat-divider></mat-divider>
       </mat-list-item>
       <mat-list-item *ngIf="filteredList.length === 0">No items Found</mat-list-item>
     </mat-list>
   </div>
 </div>
+

@@ -14,13 +14,15 @@ import { DatePipe } from '@angular/common';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { FilterByValuesComponent } from './Components/filter-by-values/filter-by-values.component';
+import { ItemDetailsComponent } from './Components/item-details/item-details.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CsvListComponent,
-    FilterByValuesComponent
+    FilterByValuesComponent,
+    ItemDetailsComponent
   ],
   imports: [
     BrowserModule,

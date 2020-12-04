@@ -1,0 +1,13 @@
+<div>
+    <button mat-icon-button [matMenuTriggerFor]="itemMenu">
+        <mat-icon style="font-weight: bold;">
+          ...
+        </mat-icon>
+      </button>
+</div>
+<mat-menu #itemMenu="matMenu">
+    <button mat-menu-item (click)="openDialog()">
+      Details
+    </button>
+</mat-menu>
+  
